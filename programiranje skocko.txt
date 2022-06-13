@@ -37,13 +37,14 @@ void pogodi(char pogodi_kombinaciju[4][10])
 }
 void provera(char random_niz[4][10], char pogodi_kombinaciju[4][10], int *crveno_polje, int *belo_polje)
 {
-    int i,j,proveri_random_niz[4]={1,1,1,1},proveri_niz[4]={1,1,1,1};
+    int i,j,bravo,proveri_random_niz[4]={1,1,1,1},proveri_niz[4]={1,1,1,1};
     *crveno_polje = *belo_polje = 0;
 
     for(i=0; i<4; i++)
         if(strcmp(pogodi_kombinaciju[i], random_niz[i]) == 0)   
         {
             ++*crveno_polje;
+            bravo++;
             proveri_random_niz[i] = proveri_niz[i] = 0;
         }            
 
@@ -62,10 +63,11 @@ void tok_igre(char pogodi_kombinaciju[4][10], int crveno_polje, int belo_polje)
     for(i=0; i<4; i++) 
         printf("%s ", pogodi_kombinaciju[i]); 
     printf("\t\t");        
-    for(i=0; i<crveno_polje; i++) 
-        printf("crevno");
+    for(i=0; i<crveno_polje; i++)
+	 
+        printf(" crevno");
     for(i=0; i<belo_polje; i++)
-        printf("belo");       
+        printf(" belo");       
     printf("\n\n");
 }
 
@@ -76,7 +78,7 @@ int main()
     char random_niz[4][10],pogodi_kombinaciju[4][10];
     while(999<1000)
     {
-        printf("Skocko \nUnesi 1 da pokrenes igru \nUnesi bilo koj drugi broj da izadjes iz igre\n\n");
+        printf("Skocko \n Unesi 1 da pokrenes igru \n Unesi bilo koj drugi broj da izadjes iz igre\n\n");
         scanf("%d", &f);        
         if(f==1)
         {
@@ -93,7 +95,7 @@ int main()
             }
         	if(Pogresan_pokusaj==6)
 				{
-				printf("\nIzgubio si pokusaj ponovo\nTacno resenje je [%s  %s  %s  %s] \n\n",random_niz[0],random_niz[1],random_niz[2],random_niz[3]);
+				printf("\n Izgubio si pokusaj ponovo\nTacno resenje je {%s  %s  %s  %s} \n\n",random_niz[0],random_niz[1],random_niz[2],random_niz[3]);
 				}        	  
         }
         else
